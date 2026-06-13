@@ -40,12 +40,73 @@
   font-size: 10px; background: var(--gold); color: var(--forest-ink);
   width: 17px; height: 17px; border-radius: 50%; display: grid; place-items: center; font-weight: 500;
 }
-.burger { display: none; }
 
+/* ---- burger ---- */
+.burger { display: none; flex-direction: column; gap: 5px; justify-self: end; z-index: 210; }
+.burger span {
+  width: 24px; height: 1.5px; background: currentColor; display: block;
+  transition: transform .4s var(--ease), opacity .3s;
+  transform-origin: center;
+}
+/* X animation */
+.burgerOpen span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burgerOpen span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burgerOpen span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ---- mobile drawer ---- */
+.drawer {
+  position: fixed; inset: 0; z-index: 190;
+  background: var(--cream);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 100px var(--pad) 60px;
+  transform: translateX(100%);
+  transition: transform .5s var(--ease);
+  pointer-events: none;
+}
+.drawerOpen {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.drawerLink {
+  font-family: var(--serif);
+  font-size: clamp(36px, 8vw, 56px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  color: var(--forest-ink);
+  display: block;
+  padding-block: 12px;
+  border-bottom: 1px solid rgba(35,36,31,.08);
+  transition: color .3s, padding-left .4s var(--ease);
+}
+.drawerLink:hover { color: var(--forest); padding-left: 8px; }
+
+.drawerActions {
+  display: flex; gap: 28px; margin-top: 48px;
+}
+.drawerActions button {
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 7px;
+  transition: color .3s;
+}
+.drawerActions button:hover { color: var(--ink); }
+
+/* ---- backdrop ---- */
+.backdrop {
+  position: fixed; inset: 0; z-index: 180;
+  background: rgba(15,36,25,.3);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  animation: fadeIn .35s ease forwards;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---- breakpoint ---- */
 @media (max-width: 980px) {
   .navLinks { display: none; }
-  .burger { display: flex; flex-direction: column; gap: 5px; justify-self: end; }
-  .burger span { width: 24px; height: 1.5px; background: currentColor; display: block; }
+  .burger { display: flex; }
   .nav { grid-template-columns: 1fr auto; }
   .navActions { display: none; }
+}
+@media (min-width: 981px) {
+  .drawer { display: none; }
 }
