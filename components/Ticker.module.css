@@ -1,0 +1,14 @@
+.ticker {
+  background: var(--forest); color: var(--cream); overflow: hidden; white-space: nowrap;
+  padding-block: 14px; border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.tickerTrack {
+  display: inline-flex; gap: 60px;
+  animation: slide 32s linear infinite; will-change: transform;
+}
+.tickerTrack span {
+  font-size: 12px; letter-spacing: .24em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 60px; opacity: .85;
+}
+.tickerTrack span::after { content: "✦"; color: var(--gold); font-size: 9px; }
+@keyframes slide { to { transform: translateX(-50%); } }

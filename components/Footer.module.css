@@ -1,0 +1,35 @@
+.footer { background: var(--forest-ink); color: var(--cream); padding-top: clamp(80px, 10vw, 140px); }
+.news {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+  padding-bottom: clamp(60px, 7vw, 100px); border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.news h2 { color: var(--cream); max-width: 13ch; }
+.news :global(.lede) { color: rgba(245,242,232,.6); }
+.newsForm {
+  display: flex; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.28);
+  padding-bottom: 14px; max-width: 440px;
+}
+.newsForm input {
+  background: none; border: none; color: var(--cream); font-family: var(--sans);
+  font-size: 16px; flex: 1; outline: none;
+}
+.newsForm input::placeholder { color: rgba(245,242,232,.4); }
+.newsForm button { color: var(--gold); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+.footGrid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 50px; padding-block: clamp(60px, 7vw, 90px); }
+.footBrand .brand { font-family: var(--serif); font-size: 34px; color: var(--cream); letter-spacing: .16em; font-weight: 500; text-transform: uppercase; display: block; margin-bottom: 24px; }
+.footBrand p { color: rgba(245,242,232,.55); font-size: 15px; max-width: 34ch; }
+.footCol h4 { font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-soft); font-weight: 400; margin-bottom: 22px; }
+.footCol a { display: block; color: rgba(245,242,232,.7); font-size: 14.5px; margin-bottom: 13px; transition: color .3s, padding-left .3s; }
+.footCol a:hover { color: var(--cream); padding-left: 5px; }
+.footBottom {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+  padding-block: 30px; border-top: 1px solid rgba(255,255,255,.1);
+  font-size: 12px; letter-spacing: .05em; color: rgba(245,242,232,.5);
+}
+.socials { display: flex; gap: 24px; }
+.socials a { letter-spacing: .16em; text-transform: uppercase; transition: color .3s; }
+.socials a:hover { color: var(--gold); }
+@media (max-width: 980px) {
+  .news { grid-template-columns: 1fr; }
+  .footGrid { grid-template-columns: 1fr; gap: 36px; }
+}

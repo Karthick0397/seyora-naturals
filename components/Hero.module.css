@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  height: 100vh; min-height: 680px;
+  color: var(--cream);
+  overflow: hidden;
+}
+.heroBg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.heroBg .photo,
+.heroBg :global(.photo) {
+  position: absolute; inset: -8% 0 0 0; height: 116%; will-change: transform;
+}
+.scrim {
+  position: absolute; inset: 0; z-index: 3;
+  background:
+    linear-gradient(180deg, rgba(15,36,25,.4) 0%, rgba(15,36,25,0) 26%),
+    linear-gradient(0deg, rgba(15,36,25,.78) 0%, rgba(15,36,25,.05) 52%);
+}
+.heroInner {
+  position: relative; z-index: 5; height: 100%;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) 12vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.heroInner :global(.display) { max-width: 14ch; }
+.heroInner :global(.lede) { color: rgba(245,242,232,.82); margin-top: 30px; max-width: 46ch; }
+.heroCta { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 40px; }
+
+/* scroll cue */
+.scrollCue {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px; z-index: 6;
+  font-size: 10px; letter-spacing: .26em; text-transform: uppercase;
+}
+.bar { width: 1px; height: 46px; background: currentColor; opacity: .4; position: relative; overflow: hidden; }
+.bar::after {
+  content: ""; position: absolute; inset: 0; background: currentColor;
+  animation: cue 2.6s var(--ease) infinite;
+}
+@keyframes cue { 0% { transform: translateY(-100%); } 55%, 100% { transform: translateY(100%); } }
+
+/* editorial product feature */
+.heroFeature {
+  position: absolute; z-index: 5; right: var(--pad); top: 0; height: 100%;
+  display: flex; align-items: center;
+  width: clamp(296px, 25vw, 380px);
+}
+.hfStack { position: relative; width: 100%; }
+.hfFrame {
+  position: relative; height: clamp(440px, 62vh, 600px); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 50px 90px -38px rgba(15,36,25,.7);
+}
+.hfFrame :global(.photo) { position: absolute; inset: -7% 0; height: 114%; }
+.hfSeal {
+  position: absolute; z-index: 7; top: -40px; left: -40px; width: 118px; height: 118px;
+  border-radius: 50%; background: var(--cream-soft);
+  display: grid; place-items: center;
+  box-shadow: 0 20px 44px -18px rgba(15,36,25,.55);
+}
+.hfSeal svg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  animation: sealspin 24s linear infinite;
+}
+.hfSeal text { font-family: var(--sans); font-size: 8.4px; letter-spacing: 1.6px; fill: var(--forest-ink); text-transform: uppercase; }
+.hfSealMark { font-size: 18px; color: var(--gold); line-height: 1; }
+@keyframes sealspin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hfSeal svg { animation: none; } }
+
+.hfCard {
+  position: absolute; z-index: 8; left: -30px; bottom: 34px; right: 34px;
+  padding: 22px 24px 20px; border-radius: 5px;
+  background: rgba(20,46,32,.42);
+  -webkit-backdrop-filter: blur(16px) saturate(120%); backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(245,242,232,.16);
+  box-shadow: 0 30px 60px -28px rgba(15,36,25,.6);
+}
+.hfCardRow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.hfNum { font-size: 11px; letter-spacing: .22em; color: rgba(245,242,232,.6); }
+.hfTag { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--forest-ink); background: var(--gold-soft); padding: 4px 10px; border-radius: 100px; }
+.hfCard h3 { font-family: var(--serif); font-size: 23px; line-height: 1.08; color: var(--cream); margin-bottom: 16px; }
+.hfMeta { display: flex; align-items: center; justify-content: space-between; }
+.price { font-family: var(--serif); font-size: 20px; color: var(--cream); }
+.hfLink { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-soft); }
+.arrow { transition: transform .5s var(--ease); }
+.hfLink:hover .arrow { transform: translateX(5px); }
+
+@media (max-width: 1080px) { .heroFeature { display: none; } }

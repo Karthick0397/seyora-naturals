@@ -1,0 +1,13 @@
+.dock {
+  position: fixed; right: 22px; bottom: 22px; z-index: 180;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.dock a {
+  width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--forest); color: var(--cream);
+  box-shadow: 0 16px 40px -12px rgba(15,36,25,.5);
+  transition: transform .4s var(--ease), background .4s;
+}
+.dock a:hover { transform: translateY(-4px) scale(1.05); }
+.wa { background: #1F8A5B !important; }
+.dock svg { width: 24px; height: 24px; fill: currentColor; }

@@ -1,0 +1,14 @@
+.statement {
+  background: var(--cream);
+  text-align: center;
+  padding-block: clamp(90px, 13vw, 180px);
+}
+.big {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(28px, 3.9vw, 56px); line-height: 1.22; letter-spacing: -.01em;
+  max-width: 20ch; margin: 0 auto; color: var(--forest-ink);
+}
+.big i { color: var(--gold); font-style: italic; }
+.meta { margin-top: 46px; display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
+.meta b { font-family: var(--serif); font-size: 30px; font-weight: 500; display: block; color: var(--forest); }
+.meta small { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }

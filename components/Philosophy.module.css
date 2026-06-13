@@ -1,0 +1,29 @@
+.philosophy { background: var(--forest); color: var(--cream); overflow: hidden; }
+.philosophy :global(.wrap) { position: relative; z-index: 2; }
+.phGlow {
+  position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,163,91,.16), transparent 65%);
+  top: -20%; right: -15%; z-index: 0; pointer-events: none;
+}
+.philosophy :global(.eyebrow) { color: var(--gold-soft); }
+.philosophy h2 { color: var(--cream); max-width: 18ch; margin: 22px 0 0; }
+.phGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 80px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px; overflow: hidden;
+}
+.phCell {
+  background: var(--forest); padding: clamp(30px, 3.4vw, 52px);
+  transition: background .6s var(--ease);
+}
+.phCell:hover { background: var(--forest-deep); }
+.pn { font-family: var(--serif); font-size: 14px; color: var(--gold); letter-spacing: .2em; }
+.phCell h3 { font-size: clamp(22px, 2vw, 30px); margin: 30px 0 16px; color: var(--cream); }
+.phCell p { color: rgba(245,242,232,.66); font-size: 15.5px; line-height: 1.7; font-weight: 300; }
+.ico {
+  width: 30px; height: 30px; border: 1px solid var(--gold); border-radius: 50%;
+  display: grid; place-items: center; font-size: 13px; color: var(--gold); margin-top: 34px;
+}
+@media (max-width: 980px) {
+  .phGrid { grid-template-columns: 1fr; }
+}
